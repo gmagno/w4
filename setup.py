@@ -7,7 +7,7 @@ from setuptools import setup, find_packages
 with open("README.md") as readme_file:
     readme: str = readme_file.read()
 
-requirements: list = []
+requirements: list = ["numpy", "scipy"]
 
 test_requirements: list[str] = [
     "pytest>=3",
@@ -37,6 +37,6 @@ setup(
     test_suite="tests",
     tests_require=test_requirements,
     url="https://github.com/gmagno/w4",
-    version="0.1.1",
+    version="0.1.2",
     zip_safe=False,
 )
