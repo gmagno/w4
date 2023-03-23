@@ -1,5 +1,5 @@
 W4
-==
+===
 
 [![PyPI version shields.io](https://img.shields.io/pypi/v/w4.svg)](https://pypi.python.org/pypi/w4/)
 
@@ -9,7 +9,7 @@ This package provides the [W4
 method](https://doi.org/10.1016/j.apnum.2022.08.019) for nonlinear root finding, inspired by the [R implementation](https://github.com/ramiromagno/w4).
 
 Install
-------
+-------
 
 create a virtual environment, activate it and upgrade pip:
 
@@ -32,7 +32,7 @@ pip install git+https://github.com/gmagno/w4
 ```
 
 Usage
-----
+-----
 
 ```python
 import numpy as np
@@ -55,6 +55,7 @@ def jac(x: np.ndarray) -> np.ndarray:
 solution: np.ndarray = w4(
     x0=x0, f=f, fa=fa, jac=jac, decomposition=Decomposition.LU, trace=True
 )
+
 print(solution)
 ```
 
@@ -87,7 +88,7 @@ Output:
 ```
 
 Tests
----------
+-----
 
 clone repo:
 

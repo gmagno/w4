@@ -9,7 +9,7 @@ with open("README.md") as readme_file:
 
 requirements: list = []
 
-test_requirements = [
+test_requirements: list[str] = [
     "pytest>=3",
 ]
 
@@ -29,6 +29,7 @@ setup(
     install_requires=requirements,
     license="MIT license",
     long_description=readme,
+    long_description_content_type="text/markdown",
     include_package_data=True,
     keywords="w4",
     name="w4",
