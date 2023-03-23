@@ -1,0 +1,10 @@
+black
+bump2version
+coverage
+flake8
+mypy
+numpy
+pytest
+scipy
+twine
+wheel
