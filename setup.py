@@ -7,7 +7,7 @@ from setuptools import setup, find_packages
 with open("README.md") as readme_file:
     readme: str = readme_file.read()
 
-requirements: list = ["numpy", "scipy"]
+requirements: list = ["numpy", "scipy", "matplotlib"]
 
 test_requirements: list[str] = [
     "pytest>=3",
