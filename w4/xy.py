@@ -27,18 +27,24 @@ def xy(jac: np.ndarray, decomposition: Decomposition = Decomposition.SV) -> XY:
 
 
 def xy_lu(jac: np.ndarray) -> XY:
-    jac_inv: np.ndarray = linalg.inv(jac)
+    x: np.ndarray
+    y: np.ndarray
     p: np.ndarray
     l: np.ndarray
     u: np.ndarray
-    p, l, u = linalg.lu(jac_inv.T)
-    x: np.ndarray = u.T
-    y: np.ndarray = l.T @ p
+    try:
+        jac_inv: np.ndarray = linalg.inv(jac)
+    except (linalg.LinAlgError, ValueError):
+        x = np.full(jac.shape, np.nan)
+        y = np.full(jac.shape, np.nan)
+    else:
+        p, l, u = linalg.lu(jac_inv.T)
+        x = u.T
+        y = l.T @ p
     return XY(x, y)
 
 
 def xy_lh(jac: np.ndarray) -> XY:
-    """"""
     q: np.ndarray
     r: np.ndarray
     q, r = linalg.qr(jac.T)
@@ -52,7 +58,6 @@ def xy_lh(jac: np.ndarray) -> XY:
 
 
 def xy_sv(jac: np.ndarray, tol=1e-6) -> XY:
-    """"""
     u: np.ndarray
     s: np.ndarray
     vh: np.ndarray
